@@ -15,12 +15,10 @@
 #include "checksums.h"
 
 /*
- * We do not use the kernel's definition of the IPv6 header (struct ipv6hdr)
- * because the definition there is slightly different from what we would expect
- * (the problem is the 20bit flow label - 20bit is brain-damaged).
- *
- * Instead, we provide you struct that directly maps to the RFCs and lecture
- * slides below.
+ * The kernel's definition of the IPv6 header (struct ipv6hdr) is not used
+ * due to the non-intuitive definition (the problem is the 20bit flow label
+ * - 20bit is brain-damaged). Instead, a struct is used that directly maps 
+ * to the RFCs.
  */
 
 struct ipv6_hdr {
@@ -44,20 +42,6 @@ uint8_t echo_request[48];
 struct ipv6_hdr *ip6_header = (struct ipv6_hdr *) packet;
 struct ip6_ext *ip6_ext_header = (struct ip6_ext *) (packet + 40);
 struct icmp6_hdr *icmp6_header = (struct icmp6_hdr *) (packet + 40);
-
-/**
- * This is the entry point for student code.
- * We do highly recommend splitting it up into multiple functions.
- *
- * A good rule of thumb is to make loop bodies functions and group operations
- * that work on the same layer into functions.
- *
- * For reading from the network have a look at assignment2. Also read the
- * comments in libraw/include/raw.h
- *
- * To get your own IP address use the grnvs_get_ip6addr function.
- * This one is also documented in libraw/include/raw.h
- */
 
 /*
  * Returns 1 if machine is little endian, 0 otherwise.
