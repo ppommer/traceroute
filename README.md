@@ -8,7 +8,7 @@ The program implements traceroute for IPv6. Echo requests are sent with ascendin
 
 The timeout per attempt (-t <timeout in sec>, default 5), the number of attempts per hop (-q <attempts>, default 3), the maximum number of hops (-m <max hops>, default 15) and the network interface to be used (-i <interface>) are passed as program parameters. To a sent ICMPv6 Echo Request different answers can be given, which are interpreted accordingly. The received packets are checked for plausibility and validity. This includes especially the verification of the header checksum.
 
-Furthermore the implementation deals with the reception of faulty or incomplete packets.
+Furthermore, the implementation deals with the reception of faulty or incomplete packets.
 
 The following responses are processed:
 
